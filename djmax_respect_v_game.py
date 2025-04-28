@@ -180,6 +180,10 @@ class DJMaxRespectVGame(Game):
         return "Muse Dash" in self.dlc_owned
 
     @property
+    def has_dlc_blue_archive(self) -> bool:
+        return "Blue Archive" in self.dlc_owned
+
+    @property
     def has_dlc_estimate(self) -> bool:
         return "Estimate" in self.dlc_owned
 
@@ -963,6 +967,26 @@ class DJMaxRespectVGame(Game):
         ]
 
     @functools.cached_property
+    def songs_blue_archive(self) -> List[str]:
+        return [
+            "After School Dessert",
+            "Bunny Bunny Carrot Carrot",
+            "Goal Wo Nerae!",
+            "Gregorious I Symphony",
+            "Hifumi Daisuki",
+            "HIGH5LANDER",
+            "Luminous Memory",
+            "Operation DOTABATA!",
+            "Okygen Destroyer",
+            "Polyphonic",
+            "Raise the Huddle",
+            "RE Aoharu",
+            "Tok9 Train",
+            "Unwelcome School",
+            "Usagi Flap",
+        ]
+
+    @functools.cached_property
     def songs_estimate(self) -> List[str]:
         return [
             "HELIX",
@@ -1128,6 +1152,8 @@ class DJMaxRespectVGame(Game):
             songs.extend(self.songs_groove_coaster)
         if self.has_dlc_muse_dash:
             songs.extend(self.songs_muse_dash)
+        if self.has_dlc_blue_archive:
+            songs.extend(self.songs_blue_archive)
         if self.has_dlc_estimate:
             songs.extend(self.songs_estimate)
         if self.has_dlc_falcom:
@@ -1225,6 +1251,7 @@ class DJMaxRespectVDLCOwned(OptionSet):
         "Ez2On",
         "Groove Coaster",
         "Muse Dash",
+        "Blue Archive",
         "Estimate",
         "Falcom",
         "Girls' Frontline",
