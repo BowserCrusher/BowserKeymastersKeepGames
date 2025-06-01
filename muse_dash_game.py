@@ -783,7 +783,7 @@ class MuseDashGame(Game):
             "Dangling",
             "Inverted World",
             "翠杜",
-            "Alfhelm's faith'",
+            "Alfhelm's faith",
             "Heaven's Cage",
             "The Promised Land",
             "Broomstick adventure!",
