@@ -262,6 +262,7 @@ class MuseDashGame(Game):
             "Glimmer feat.祈Inory",
             "EXIST feat.米雅",
             "Irreplaceable feat.夏铜子*",
+            "Heart Message feat. Aoi Tokimori",
         ]
 
     @functools.cached_property
@@ -774,6 +775,18 @@ class MuseDashGame(Game):
             "Transient Tears",
             "SHOOTING☆STAR (feat.るなっち☆ほし)",
             "青い鳥はもう死んだのに	",
+            "Äventyr",
+            "Raintain",
+            "穿云破浪 (feat.渊)",
+            "Save Yourself",
+            "Menace",
+            "Dangling",
+            "Inverted World",
+            "翠杜",
+            "Alfhelm's faith'",
+            "Heaven's Cage",
+            "The Promised Land",
+            "Broomstick adventure!",
         ]
 
     @functools.cached_property
