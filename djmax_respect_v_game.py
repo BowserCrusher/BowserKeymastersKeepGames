@@ -134,6 +134,10 @@ class DJMaxRespectVGame(Game):
     @property
     def has_dlc_v_liberty_2(self) -> bool:
         return "V Liberty 2" in self.dlc_owned
+    
+    @property
+    def has_dlc_v_liberty_3(self) -> bool:
+        return "V Liberty 3" in self.dlc_owned
 
     @property
     def has_dlc_emotional_sense(self) -> bool:
@@ -735,6 +739,30 @@ class DJMaxRespectVGame(Game):
             "Saga Script",
             "TOXIC (feat. Shabel Tonya)",
         ]
+    
+    @functools.cached_property
+    def songs_v_liberty_3(self) -> List[str]:
+        return [
+            "Checkmate (feat. Re.may)", 
+            "CHiNEM4TiC", 
+            "DJ_Joseon (feat. E_Omong, Pandalang)", 
+            "Fly with me (feat. Jungmihwang)", 
+            "Hero", 
+            "I'm Dizzy", 
+            "kohiodoshi", 
+            "Labyrinth of Tears", 
+            "Love, Epilogue (feat. mill)", 
+            "mochimochi", 
+            "Phylma", 
+            "Rise Up", 
+            "Rusty Shell", 
+            "Shimmer (feat. Kinoko)", 
+            "Summer Fling", 
+            "Synchronized Resonance", 
+            "The Universe", 
+            "thinking!", 
+            "Violent (feat. SAINT MILLER)", 
+        ]
 
     @functools.cached_property
     def songs_emotional_sense(self) -> List[str]:
@@ -1130,6 +1158,8 @@ class DJMaxRespectVGame(Game):
             songs.extend(self.songs_v_liberty)
         if self.has_dlc_v_liberty_2:
             songs.extend(self.songs_v_liberty_2)
+        if self.has_dlc_v_liberty_3:
+            songs.extend(self.songs_v_liberty_3)
         if self.has_dlc_emotional_sense:
             songs.extend(self.songs_emotional_sense)
         if self.has_dlc_technika:
@@ -1240,6 +1270,7 @@ class DJMaxRespectVDLCOwned(OptionSet):
         "V Extension 5",
         "V Liberty",
         "V Liberty 2",
+        "V Liberty 3",
         "Emotional Sense",
         "Technika",
         "Technika 2",
