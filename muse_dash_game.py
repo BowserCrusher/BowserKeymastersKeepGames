@@ -787,6 +787,19 @@ class MuseDashGame(Game):
             "Heaven's Cage",
             "The Promised Land",
             "Broomstick adventure!",
+            "つよつよナースブロウちゃん！",
+            "Cubism（きゅびずむ）",
+            "Cubibibibism（きゅびびびびずむ",
+            "LET'S TOAST!!",
+            "#YamiKawa",
+            "Rainy Step",
+            "OHO・SHI・KA・TSU",
+            "Dreamy Day",
+            "Quo Vadis",
+            "Ineffabilis",
+            "Futropolis",
+            "REANIMATE",
+            "DaJiaHao",
         ]
 
     @functools.cached_property

@@ -295,6 +295,7 @@ class DJMaxRespectVGame(Game):
             "Grid System",
             "I want You ~Twinkle Twinkle Sunshine~",
             "IM ALIVE",
+            "Insane Drift",
             "Kamui",
             "Karma",
             "Kingdom",
@@ -746,6 +747,7 @@ class DJMaxRespectVGame(Game):
             "Checkmate (feat. Re.may)", 
             "CHiNEM4TiC", 
             "DJ_Joseon (feat. E_Omong, Pandalang)", 
+            "DUKA -Special Edit-",
             "Fly with me (feat. Jungmihwang)", 
             "Hero", 
             "I'm Dizzy", 
@@ -1129,8 +1131,8 @@ class DJMaxRespectVGame(Game):
     def songs_clear_pass(self) -> List[str]:
         return [
             "alliance",
-            "Insane Drift",
             "Kill Trap",
+            "PUPA (xi Remix)",
         ]
 
     def songs(self) -> List[str]:
