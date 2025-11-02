@@ -160,6 +160,10 @@ class DJMaxRespectVGame(Game):
         return "Technika Tune & Q" in self.dlc_owned
 
     @property
+    def has_dlc_arcaea(self) -> bool:
+        return "Arcaea" in self.dlc_owned
+
+    @property
     def has_dlc_chunithm(self) -> bool:
         return "Chunithm" in self.dlc_owned
 
@@ -298,6 +302,7 @@ class DJMaxRespectVGame(Game):
             "Insane Drift",
             "Kamui",
             "Karma",
+            "Kill Trap",
             "Kingdom",
             "Mozart Symphony No. 40 1st Mvt.",
             "Mr. Lonely",
@@ -896,6 +901,26 @@ class DJMaxRespectVGame(Game):
         ]
 
     @functools.cached_property
+    def songs_arcaea(self) -> List[str]:
+        return [
+            "#1f1e33",
+            "AI[UE]OON",
+            "Axium Crisis",
+            "Cyaegha",
+            "Far Away Light",
+            "Fracture Ray",
+            "Grievous Lady",
+            "Loschen",
+            "Lost Desire",
+            "MIRINAE",
+            "Malicious Mischance",
+            "NEO WINGS",
+            "Redolent Shape",
+            "trappola bewitching",
+            "ultradiaxon-N3",
+        ]
+
+    @functools.cached_property
     def songs_chunithm(self) -> List[str]:
         return [
             "Cyberozar",
@@ -1131,7 +1156,7 @@ class DJMaxRespectVGame(Game):
     def songs_clear_pass(self) -> List[str]:
         return [
             "alliance",
-            "Kill Trap",
+            "Gate of Elysium",
             "PUPA (xi Remix)",
         ]
 
@@ -1172,6 +1197,8 @@ class DJMaxRespectVGame(Game):
             songs.extend(self.songs_technika_3)
         if self.has_dlc_technika_tune_q:
             songs.extend(self.songs_technika_tune_q)
+        if self.has_dlc_arcaea:
+            songs.extend(self.songs_arcaea)
         if self.has_dlc_chunithm:
             songs.extend(self.songs_chunithm)
         if self.has_dlc_cytus:
@@ -1278,6 +1305,7 @@ class DJMaxRespectVDLCOwned(OptionSet):
         "Technika 2",
         "Technika 3",
         "Technika Tune & Q",
+        "Arcaea",
         "Chunithm",
         "Cytus",
         "Deemo",

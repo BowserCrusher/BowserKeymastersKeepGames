@@ -169,6 +169,10 @@ class VampireSurvivorsGame(Game):
     def has_dlc_emerald_diorama(self) -> bool:
         return "Emerald Diorama" in self.dlc_owned
 
+    @property
+    def has_dlc_ante_chamber(self) -> bool:
+        return "Ante Chamber" in self.dlc_owned
+
     @staticmethod
     def powerups() -> List[str]:
         return [
@@ -212,6 +216,7 @@ class VampireSurvivorsGame(Game):
             "Bat Robbert",
             "Bianca Ramba",
             "Christine Davain",
+            "Chula-Reh",
             "Concetta Caciotta",
             "Divano Thelma",
             "Dommario",
@@ -236,6 +241,7 @@ class VampireSurvivorsGame(Game):
             "Space Dude",
             "Suor Clerici",
             "Yatta Cavallo",
+            "Zi'Appunta Belpaese",
             "Zi'Assunta Belpaese",
         ]
 
@@ -359,6 +365,15 @@ class VampireSurvivorsGame(Game):
         ]
 
     @functools.cached_property
+    def characters_ante_chamber(self) -> List[str]:
+        return [
+            "Canio",
+            "Chicot",
+            "Jimbo",
+            "Perkeo",
+        ]
+
+    @functools.cached_property
     def characters_secret_base(self) -> List[str]:
         return [
             "Avatar Infernas",
@@ -378,15 +393,20 @@ class VampireSurvivorsGame(Game):
             "Random",
             "Rose De Infernas",
             "Scorej-Oni",
+            "Secretino Dagsson",
             "Smith IV",
             "Space Dette",
             "Toastie",
+            "Torino",
         ]
 
     @functools.cached_property
     def characters_secret_ode_to_castlevania(self) -> List[str]:
         return [
             "Alamaric Sniper",
+            "Annette",
+            "Astarte",
+            "Atlantis Shrin Wizard",
             "Axe Armor",
             "Blackmore",
             "Blue Crescent Moon Cornell",
@@ -399,14 +419,19 @@ class VampireSurvivorsGame(Game):
             "Dario Bossi",
             "Death",
             "Dmitrii Blinov",
+            "Drolta Tzuentes",
+            "Fake Trio",
             "Familiar",
             "Ferryman",
             "Fleaman",
             "Frozenshade",
             "Galamoth",
+            "Genya Arikado",
             "Graham Jones",
             "Hammer",
+            "Hugh Baldwin",
             "Innocent Devil",
+            "Jiangshi",
             "Joachim Armster",
             "Keremet",
             "Loretta & Stella Lecarde",
@@ -417,13 +442,21 @@ class VampireSurvivorsGame(Game):
             "Megalo Dracula",
             "Megalo Elizabeth Bartley",
             "Megalo Olrox",
+            "Morris Baldwin",
+            "Persephone",
+            "Ruler Sword",
+            "Slogra and Gaibon",
             "Soleil Belmont",
             "Stella & Loretta Lecarde",
             "Stella Lecarde",
+            "Stone Skull",
             "Succubus",
+            "Tera",
             "Walter Bernhard",
             "Wind",
+            "Witch Actrise",
             "Young Maria Renard",
+            "Zephyr",
         ]
 
     @functools.cached_property
@@ -456,6 +489,9 @@ class VampireSurvivorsGame(Game):
         if self.has_dlc_emerald_diorama:
             characters.extend(self.characters_emerald_diorama)
 
+        if self.has_dlc_ante_chamber:
+            characters.extend(self.characters_ante_chamber)
+
         if bool(self.archipelago_options.vampire_survivors_allow_secret_characters.value):
             characters.extend(self.characters_secret_base)
 
@@ -470,6 +506,7 @@ class VampireSurvivorsGame(Game):
     @functools.cached_property
     def base_weapons_base(self) -> List[str]:
         return [
+            "Ammo Appalate",
             "Arma Dio",
             "Axe",
             "Bone",
@@ -477,6 +514,7 @@ class VampireSurvivorsGame(Game):
             "Candybox",
             "Carréllo",
             "Celestial Dusting",
+            "Chaos Rune",
             "Cherry Bomb",
             "Clock Lancet",
             "Cross",
@@ -495,6 +533,7 @@ class VampireSurvivorsGame(Game):
             "Laurel",
             "Lightning Ring",
             "Magic Wand",
+            "Magi-Stone",
             "Pako Battiliar",
             "Peachone",
             "Pentagram",
@@ -570,6 +609,7 @@ class VampireSurvivorsGame(Game):
             "Alchemy Whip",
             "Alucard Spear",
             "Alucart Sworb",
+            "Anura",
             "Arrow of Goth",
             "Aura Blast",
             "Belnades' Spellbook",
@@ -603,6 +643,7 @@ class VampireSurvivorsGame(Game):
             "Iron Shield",
             "Javelin",
             "Jet Black Whip",
+            "Kaiser Knuckle",
             "Keremet Bubbles",
             "Luminatio",
             "Mace",
@@ -612,6 +653,7 @@ class VampireSurvivorsGame(Game):
             "Optical Shot",
             "Peri Pendulum",
             "Platinum Whip",
+            "Pocket Knife",
             "Raging Fire",
             "Refectio",
             "Rock Riot",
@@ -660,6 +702,15 @@ class VampireSurvivorsGame(Game):
             "Twin Dragon",
         ]
 
+    @functools.cached_property
+    def base_weapons_ante_chamber(self) -> List[str]:
+        return [
+            "Celestial Booster",
+            "Fibonacci Spritz",
+            "Gros Michel",
+            "Infernolatro",
+        ]
+
     def base_weapons(self) -> List[str]:
         base_weapons: List[str] = self.base_weapons_base[:]
 
@@ -681,6 +732,9 @@ class VampireSurvivorsGame(Game):
         if self.has_dlc_emerald_diorama:
             base_weapons.extend(self.base_weapons_emerald_diorama)
 
+        if self.has_dlc_ante_chamber:
+            base_weapons.extend(self.base_weapons_ante_chamber)
+
         return sorted(base_weapons)
 
     @functools.cached_property
@@ -690,15 +744,18 @@ class VampireSurvivorsGame(Game):
             "Ashes of Muspell  (Flames of Misspell + Torrona's Box)",
             "Bi-Bracelet  (Bracelet)",
             "Bloody Tear  (Whip + Hollow Heart)",
+            "Carozza! (Carréllo + Chaos Lazulia)",
             "Celestial Voulge  (Glass Fandango + Wings)",
             "Crimson Shroud  (Laurel + Metaglio Left / Right)",
             "Death Spiral  (Axe + Candelabrador)",
             "Embrace of Gaea (Gaze of Gaea + Parm Aegis)",
             "Gorgeous Moon  (Pentagram + Crown)",
+            "Gunastrophe (Ammo Appalate + Bracer)",
             "Heaven Sword  (Cross + Clover)",
             "Hellfire  (Fire Wand + Spinach)",
             "Holy Wand  (Magic Wand + Empty Tome)",
             "Infinite Corridor  (Clock Lancet + Silver / Gold Rings)",
+            "Kyra_Stones (Magi-Stone + Karoma's Mana')",
             "La Borra  (Santa Water + Attractorb)",
             "Mannajja  (Song of Mana + Skull O'Maniac)",
             "Mazo Familiar  (Pako Battiliar + Hollow Heart)",
@@ -713,6 +770,7 @@ class VampireSurvivorsGame(Game):
             "Unholy Vespers  (King Bible + Spellbinder)",
             "Valkyrie Turner  (Shadow Pinion + Wings)",
             "Vicious Hunger  (Gatti Amari + Stone Mask)",
+            "Wicked Ruler (Chaos Rune + Spellbinder)",
             "Yatta Daikarin  (Cherry Bomb + Chaos Rosalia + Yatta Cavallo)",
         ]
 
@@ -771,6 +829,7 @@ class VampireSurvivorsGame(Game):
             "Alucard Swords  (Alucart Sworb)",
             "Aurablaster Tip  (Vanitas Whip + Hollow Heart)",
             "Bwaka Knife  (Curved Knife + Bracer)",
+            "Claimh Solais (Pocket Knife + Torrona's Box')",
             "Cocytus  (Ice Fang + Spellbinder)",
             "Crissaegrim Tip  (Sonic Whip + Skull O'Maniac)",
             "Cross Crasher Tip  (Platinum Whip + Clover)",
@@ -786,7 +845,7 @@ class VampireSurvivorsGame(Game):
             "Melio Confodere  (Vol Confodere)",
             "Moon Rod  (Star Flail + Pummarola)",
             "Mormegil Tip  (Jet Black Whip + Stone Mask)",
-            "Nightmare  (Hex + Skull O'Maniac)",
+            "Nightmare  (Hex + Skull O'Maniac
             "Nitesco  (Globus + Empty Tome)",
             "Pneuma Tempestas  (Gale Force + Bracer)",
             "Rapidus Fio  (Sonic Dash + Wings)",
@@ -836,6 +895,15 @@ class VampireSurvivorsGame(Game):
             "Zweihander (Flamberge)",
         ]
 
+    @functools.cached_property
+    def evolution_weapons_ante_chamber(self) -> List[str]:
+        return [
+            "Cavendish (Gros Michel + Outer Sabotuer)",
+            "NaneInferno (Infernolatro + Outer Sabotuer)",
+            "Negatice Space (Celestial Booster + Outer Sabotuer)",
+            "Royal Flush (Fibonacci Spritz + Outer Sabotuer)",
+        ]
+
     def evolution_weapons(self) -> List[str]:
         evolution_weapons: List[str] = self.evolution_weapons_base[:]
 
@@ -857,6 +925,9 @@ class VampireSurvivorsGame(Game):
         if self.has_dlc_emerald_diorama:
             evolution_weapons.extend(self.evolution_weapons_emerald_diorama)
 
+        if self.has_dlc_ante_chamber:
+            evolution_weapons.extend(self.evolution_weapons_ante_chamber)
+
         return sorted(evolution_weapons)
 
     @functools.cached_property
@@ -876,9 +947,24 @@ class VampireSurvivorsGame(Game):
     @functools.cached_property
     def union_weapons_ode_to_castlevania(self) -> List[str]:
         return [
+            "Arch Angle (Grand Cross + Heaven Sword)",
+			"Carnage Heart (Troll Bomb + NO FUTURE)",
             "Clock Tower  (Endo Gears + Peri Pendulum + Myo Lift + Epi Head)",
+            "Dark Frogmorphosis (Anura + Soul Eater)",
+			"Darkness Illusion (Svarog Statue + Valkyrie Turner)",
+			"Dies Irae (Arrow of Goth + Mannajja)",
+			"Hydro Pump Climax (Hydro Storm + La Borra)",
+			"Kardia Phlegeton (Aura Blast + Hellfire)",
+			"Lapiste Tepisto (Kaiser Knuckle + Tri-Bracelet)",
+			"Legacy of Death: Soul River (Dark Rift + Death Spiral)",
+			"Million Cut (Valmanway + Thousand Edge)",
+			"Ninth Circle (Icebrand + Unholy Vespers)",
+			"Power of Lire (Soul Steal + Vicious Hunger)",
             "Power of Sire  (Dominus Anger + Dominus Hatred + Dominus Agony)",
+			"Spirit of Light (Summon Spirit + Holy Wand)",
             "Trinum Custodem  (Dextro Custos + Sinestro Custos + Centralis Custos)",
+			"Vjaya Sisters (Sword Brothers + Thunder Loop)",
+			"Venus Crescent (Summon Spirit Tornado + Gorgeous Moon)",
         ]
 
     def union_weapons(self) -> List[str]:
@@ -952,12 +1038,14 @@ class VampireSurvivorsGame(Game):
             "Inlaid Library",
             "Laborratory",
             "Mad Forest",
+            "Mazerella",
             "Moongolow",
             "Room 1665",
             "Space 54",
             "The Bone Zone",
             "The Coop",
             "Tiny Bridge",
+            "Westwoods",
             "Whiteout",
         ]
 
@@ -999,6 +1087,12 @@ class VampireSurvivorsGame(Game):
             "Emerald Diorama",
         ]
 
+    @functools.cached_property
+    def stages_ante_chamber(self) -> List[str]:
+        return [
+            "Ante Chamber",
+        ]
+
     def stages(self) -> List[str]:
         stages: List[str] = self.stages_base[:]
 
@@ -1020,6 +1114,9 @@ class VampireSurvivorsGame(Game):
         if self.has_dlc_emerald_diorama:
             stages.extend(self.stages_emerald_diorama)
 
+        if self.has_dlc_ante_chamber:
+            stages.extend(self.stages_ante_chamber)
+
         return sorted(stages)
 
 
@@ -1037,6 +1134,7 @@ class VampireSurvivorsDLCOwned(OptionSet):
         "Operation Guns",
         "Ode to Castlevania",
         "Emerald Diorama",
+        "Ante Chamber",
     ]
 
     default = valid_keys
