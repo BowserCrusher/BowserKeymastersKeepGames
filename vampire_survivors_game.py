@@ -845,7 +845,7 @@ class VampireSurvivorsGame(Game):
             "Melio Confodere  (Vol Confodere)",
             "Moon Rod  (Star Flail + Pummarola)",
             "Mormegil Tip  (Jet Black Whip + Stone Mask)",
-            "Nightmare  (Hex + Skull O'Maniac
+            "Nightmare  (Hex + Skull O'Maniac",
             "Nitesco  (Globus + Empty Tome)",
             "Pneuma Tempestas  (Gale Force + Bracer)",
             "Rapidus Fio  (Sonic Dash + Wings)",
