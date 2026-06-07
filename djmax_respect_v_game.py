@@ -139,6 +139,9 @@ class DJMaxRespectVGame(Game):
     def has_dlc_v_liberty_3(self) -> bool:
         return "V Liberty 3" in self.dlc_owned
 
+    def has_dlc_v_liberty_4(self) -> bool:
+        return "V Liberty 4" in self.dlc_owned
+
     @property
     def has_dlc_emotional_sense(self) -> bool:
         return "Emotional Sense" in self.dlc_owned
@@ -188,6 +191,10 @@ class DJMaxRespectVGame(Game):
         return "Muse Dash" in self.dlc_owned
 
     @property
+    def has_dlc_ongeki(self) -> bool:
+        return "O.N.G.E.K.I." in self.dlc_owned
+
+    @property
     def has_dlc_blue_archive(self) -> bool:
         return "Blue Archive" in self.dlc_owned
 
@@ -216,8 +223,16 @@ class DJMaxRespectVGame(Game):
         return "Tekken" in self.dlc_owned
 
     @property
+    def has_dlc_pli_64514_part_1(self) -> bool:
+        return "PLI: 64514 Part. 1" in self.dlc_owned
+
+    @property
     def has_dlc_pli_tribute_1(self) -> bool:
         return "PLI: Tribute 1" in self.dlc_owned
+
+    @property
+    def has_dlc_pli_tribute_2(self) -> bool:
+        return "PLI: Tribute 2" in self.dlc_owned
 
     @property
     def has_dlc_clear_pass(self) -> bool:
@@ -277,6 +292,7 @@ class DJMaxRespectVGame(Game):
     def songs_respect_v(self) -> List[str]:
         return [
             "Airlock",
+            "alliance"
             "Alone (Marshmello)",
             "Alone (Nauts)",
             "Angelic Tears",
@@ -289,7 +305,7 @@ class DJMaxRespectVGame(Game):
             "Chemical Slave",
             "comet",
             "Dance of the Dead",
-            "Dancin Planet",
+            "Dancin' Planet",
             "Dark Lightning",
             "Daylight",
             "Flowering",
@@ -298,7 +314,7 @@ class DJMaxRespectVGame(Game):
             "Ghost Voices",
             "Grid System",
             "I want You ~Twinkle Twinkle Sunshine~",
-            "IM ALIVE",
+            "I'M ALIVE",
             "Insane Drift",
             "Kamui",
             "Karma",
@@ -310,8 +326,10 @@ class DJMaxRespectVGame(Game):
             "OrBiTal",
             "Phoenix Virus",
             "POP/STARS",
+            "PUPA (xi Remix)",
             "Re:BIRTH",
             "Relation Again (ESTis Remix)",
+            "River Flow",
             "RockSTAR",
             "Sad Machine",
             "So Happy",
@@ -501,7 +519,7 @@ class DJMaxRespectVGame(Game):
             "Nevermind",
             "sO mUCH iN LUV ~Melodic Twister Mix~",
             "Someday",
-            "STOP",
+            "STOP (3rd Coast)",
             "Streetlight",
             "Syriana ~Blast Wave Mix~",
             "Talk! Talk!",
@@ -759,7 +777,7 @@ class DJMaxRespectVGame(Game):
             "kohiodoshi", 
             "Labyrinth of Tears", 
             "Love, Epilogue (feat. mill)", 
-            "mochimochi", 
+            "mochimochi (feat. Hatsune Miku)", 
             "Phylma", 
             "Rise Up", 
             "Rusty Shell", 
@@ -769,6 +787,31 @@ class DJMaxRespectVGame(Game):
             "The Universe", 
             "thinking!", 
             "Violent (feat. SAINT MILLER)", 
+        ]
+
+    @functools.cached_property
+    def songs_v_liberty_4(self) -> List[str]:
+        return [
+            "A Miracle For Me",
+            "ALTER/egO",
+            "AWAKE",
+            "Crazy (feat. Yina)",
+            "Hallasan",
+            "HEAVENLY STRIKE",
+            "Heliocentrism",
+            "Luv Master",
+            "Maboroshi (feat. AZK)",
+            "Mirage Night (feat. Yurisa)",
+            "Never Forget You",
+            "New Fantasy (feat. Crystal Tea)",
+            "No Mercy",
+            "Octet rule",
+            "Re-Rule",
+            "RUN & RUN",
+            "Samsar Garden (feat. SOONHO)",
+            "The Castle of Bathory",
+            "Trembling Moods",
+            "Village Racing",
         ]
 
     @functools.cached_property
@@ -1022,6 +1065,23 @@ class DJMaxRespectVGame(Game):
         ]
 
     @functools.cached_property
+    def songs_ongeki(self) -> List[str]:
+        return [
+            "Ai Nov",
+            "And Revive The Melody",
+            "Baquula",
+            "Brain Attack",
+            "Dazzle hop",
+            "Don't Fight The Music",
+            "Eta Beta Eta",
+            "Good bye, Merry-Go-Round",
+            "LAMIA",
+            "LiftOff",
+            "MarbleBlue",
+            "Radiance",
+        ]
+
+    @functools.cached_property
     def songs_blue_archive(self) -> List[str]:
         return [
             "After School Dessert",
@@ -1138,6 +1198,21 @@ class DJMaxRespectVGame(Game):
         ]
 
     @functools.cached_property
+    def songs_pli_64514_part_1(self) -> List[str]:
+        return [
+            "Bring the Techno",
+            "Destrocode",
+            "I wanna make some NO!ZE",
+            "IWTEYI",
+            "MAX POWER (feat. Larakay)",
+            "Sandevistan",
+            "STOP (SAINT MILLER)",
+            "The Edge",
+            "The Lost World",
+            "We all want to be loved (feat. BIRA)",
+        ]
+
+    @functools.cached_property
     def songs_pli_tribute_1(self) -> List[str]:
         return [
             "DO IT!",
@@ -1153,11 +1228,27 @@ class DJMaxRespectVGame(Game):
         ]
 
     @functools.cached_property
+    def songs_pli_tribute_2(self) -> List[str]:
+        return [
+            "Candy Girl",
+            "For Boyhood",
+            "Let Up",
+            "On Da Floor",
+            "Pharm of Charm",
+            "Private Party",
+            "Right Back",
+            "The Party",
+            "This is you",
+            "Wake Up feat. a-m",
+        ]
+
+    @functools.cached_property
     def songs_clear_pass(self) -> List[str]:
         return [
-            "alliance",
+            "AURORA",
+            "DATAMOSH++",
             "Gate of Elysium",
-            "PUPA (xi Remix)",
+            "MEGATONiX PHANTOM",
         ]
 
     def songs(self) -> List[str]:
@@ -1187,6 +1278,8 @@ class DJMaxRespectVGame(Game):
             songs.extend(self.songs_v_liberty_2)
         if self.has_dlc_v_liberty_3:
             songs.extend(self.songs_v_liberty_3)
+        if self.has_dlc_v_liberty_4:
+            songs.extend(self.songs_v_liberty_4)
         if self.has_dlc_emotional_sense:
             songs.extend(self.songs_emotional_sense)
         if self.has_dlc_technika:
@@ -1211,6 +1304,8 @@ class DJMaxRespectVGame(Game):
             songs.extend(self.songs_groove_coaster)
         if self.has_dlc_muse_dash:
             songs.extend(self.songs_muse_dash)
+        if self.has_dlc_ongeki:
+            songs.extend(self.songs_ongeki)
         if self.has_dlc_blue_archive:
             songs.extend(self.songs_blue_archive)
         if self.has_dlc_estimate:
@@ -1225,8 +1320,12 @@ class DJMaxRespectVGame(Game):
             songs.extend(self.songs_nexon)
         if self.has_dlc_tekken:
             songs.extend(self.songs_tekken)
+        if self.has_dlc_pli_64514_part_1:
+            songs.extend(self.songs_pli_64514_part_1)
         if self.has_dlc_pli_tribute_1:
             songs.extend(self.songs_pli_tribute_1)
+        if self.has_dlc_pli_tribute_2:
+            songs.extend(self.songs_pli_tribute_2)
         if self.has_dlc_clear_pass:
             songs.extend(self.songs_clear_pass)
 
@@ -1300,6 +1399,7 @@ class DJMaxRespectVDLCOwned(OptionSet):
         "V Liberty",
         "V Liberty 2",
         "V Liberty 3",
+        "V Liberty 4",
         "Emotional Sense",
         "Technika",
         "Technika 2",
@@ -1312,6 +1412,7 @@ class DJMaxRespectVDLCOwned(OptionSet):
         "Ez2On",
         "Groove Coaster",
         "Muse Dash",
+        "O.N.G.E.K.I.",
         "Blue Archive",
         "Estimate",
         "Falcom",
@@ -1319,7 +1420,9 @@ class DJMaxRespectVDLCOwned(OptionSet):
         "Maple Story",
         "Nexon",
         "Tekken",
+        "PLI: 64514 Part. 1",
         "PLI: Tribute 1",
+        "PLI: Tribute 2",
         "Clear Pass",
     ]
 
