@@ -139,8 +139,13 @@ class DJMaxRespectVGame(Game):
     def has_dlc_v_liberty_3(self) -> bool:
         return "V Liberty 3" in self.dlc_owned
 
+    @property
     def has_dlc_v_liberty_4(self) -> bool:
         return "V Liberty 4" in self.dlc_owned
+
+    @property
+    def has_dlc_v_liberty_5(self) -> bool:
+        return "V Liberty 5" in self.dlc_owned
 
     @property
     def has_dlc_emotional_sense(self) -> bool:
@@ -726,6 +731,7 @@ class DJMaxRespectVGame(Game):
             "Confessions in Another World ~Pan Remix~",
             "Cotton Candy Soda",
             "Diomedes",
+            "Diomedes ~Extended Mix~",
             "Final Hour (Game Ver.)",
             "Final Round",
             "Follow Me",
@@ -812,6 +818,32 @@ class DJMaxRespectVGame(Game):
             "The Castle of Bathory",
             "Trembling Moods",
             "Village Racing",
+        ]
+
+    @functools.cached_property
+    def songs_v_liberty_5(self) -> List[str]:
+        return [
+            "A Rainbow In The Sky (fet. eili)",
+            "Aria (feat. DIEIN)",
+            "Black Death",
+            "BORDERLINE",
+            "Break The Cahins (feat. Re.may)",
+            "Cosmo (feat. Letsu)",
+            "Dreamscape",
+            "EverDreams (feat. saewool)",
+            "Final Lap",
+            "Megingjord",
+            "Miraesonyeo (feat.Hyeji)",
+            "PPPP (feat. Hatsune Miku, Kasane Teto)",
+            "Profileration",
+            "RE;DIEIN",
+            "Rebound Alpha",
+            "Second Light (feat. Ahn Yeonjae)",
+            "Sleipnir",
+            "Stardust Lullaby (feat. Kinoko)",
+            "Summer Ride (feat. chomin, Funtwo)",
+            "That Girl (feat. Bira)",
+            "Touch The Sky",
         ]
 
     @functools.cached_property
@@ -1280,6 +1312,8 @@ class DJMaxRespectVGame(Game):
             songs.extend(self.songs_v_liberty_3)
         if self.has_dlc_v_liberty_4:
             songs.extend(self.songs_v_liberty_4)
+        if self.has_dlc_v_liberty_5:
+            songs.extend(self.songs_v_liberty_5)
         if self.has_dlc_emotional_sense:
             songs.extend(self.songs_emotional_sense)
         if self.has_dlc_technika:
@@ -1400,6 +1434,7 @@ class DJMaxRespectVDLCOwned(OptionSet):
         "V Liberty 2",
         "V Liberty 3",
         "V Liberty 4",
+        "V Liberty 5",
         "Emotional Sense",
         "Technika",
         "Technika 2",
